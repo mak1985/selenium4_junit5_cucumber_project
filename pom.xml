@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.domain</groupId>
+  <artifactId>selenium4-hybrid-framework</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <name>selenium4-hybrid-framework</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <developers>
+    <developer>
+      <id>john_doe</id>
+      <name>Makhan Dhar</name>
+      <email>makhan.dhar@gmail.com</email>
+      <organization>Grasshopper</organization>
+      <organizationUrl>http://ghchirp.site/</organizationUrl>
+    </developer>
+  </developers>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+    <java.version>11</java.version>
+    <cucumber.version>7.13.0</cucumber.version>
+    <maven.compiler.version>3.8.1</maven.compiler.version>
+    <maven.surefire.version>3.0.0-M6</maven.surefire.version>
+    <junit.jupiter.version>5.10.0</junit.jupiter.version>
+    <assertj-core.version>3.24.2</assertj-core.version>
+    <extentreports-cucumber7-adapter.version>1.14.0</extentreports-cucumber7-adapter.version>
+    <extentreports.version>5.1.0</extentreports.version>
+    <cucumber-picocontainer.version>7.13.0</cucumber-picocontainer.version>
+    <log4j-core.version>2.20.0</log4j-core.version>
+    <log4j-api.version>2.20.0</log4j-api.version>
+    <logback-classic.version>1.4.8</logback-classic.version>
+    <selenium-java.version>4.11.0</selenium-java.version>
+  </properties>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>${assertj-core.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>${selenium-java.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java</artifactId>
+      <version>${cucumber.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-junit</artifactId>
+      <version>${cucumber.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>${logback-classic.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>${log4j-api.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>${log4j-core.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-picocontainer</artifactId>
+      <version>${cucumber-picocontainer.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.aventstack</groupId>
+      <artifactId>extentreports</artifactId>
+      <version>${extentreports.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>tech.grasshopper</groupId>
+      <artifactId>extentreports-cucumber7-adapter</artifactId>
+      <version>${extentreports-cucumber7-adapter.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>${junit.jupiter.version}</version> <!-- Use the latest version -->
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven.compiler.version}</version> <!-- Adjust the version as needed -->
+        <configuration>
+          <source>${java.version}</source> <!-- Java version for source code -->
+          <target>${java.version}</target> <!-- Java version for bytecode -->
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven.surefire.version}</version>
+        <configuration>
+          <includes>
+            <include>**/*TestRunner.java</include>
+            <parallel>methods</parallel>
+            <threadCount>4</threadCount>
+          </includes>
+          <testFailureIgnore>true</testFailureIgnore>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+</project>

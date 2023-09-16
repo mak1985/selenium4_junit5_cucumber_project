@@ -1,0 +1,45 @@
+pipeline {
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout your source code from version control
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {
+                // Build your project here
+                sh 'mvn package -DskipTests'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // Run tests and generate a test report
+                sh 'mvn clean verify'
+            }
+        }
+
+        stage('Email Report') {
+            steps {
+                // Define the path to your report file (adjust as needed)
+                def reportFilePath = 'target/test-report.html'
+
+                // Create an EmailMessage object
+                def emailMessage = emailext(
+                    body: 'Please find the attached test report.',
+                    subject: 'Test Report',
+                    mimeType: 'text/html',
+                    to: 'recipient@example.com'
+                )
+
+                // Attach the report file to the email
+                emailMessage.attachFile(reportFilePath)
+
+                // Send the email
+                emailMessage.send()
+            }
+        }
+    }
+}
