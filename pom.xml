@@ -109,7 +109,7 @@
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
-      <version>${junit.jupiter.version}</version> <!-- Use the latest version -->
+      <version>${junit.jupiter.version}</version>
       <scope>test</scope>
     </dependency>
 
@@ -121,10 +121,10 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>${maven.compiler.version}</version> <!-- Adjust the version as needed -->
+        <version>${maven.compiler.version}</version>
         <configuration>
-          <source>${java.version}</source> <!-- Java version for source code -->
-          <target>${java.version}</target> <!-- Java version for bytecode -->
+          <source>${java.version}</source>
+          <target>${java.version}</target>
         </configuration>
       </plugin>
 
