@@ -1,5 +1,6 @@
 package com.domain.stepdefinitions;
 
+
 import com.domain.utils.CommonUtils;
 import com.domain.config.ConfigsReader;
 import io.cucumber.java.en.*;
@@ -27,6 +28,7 @@ public class LoginTest extends CommonUtils {
     public void user_clicks_on_login_button() {
         click(loginPage.loginButton);
         logger.info("User clicks on login button");
+
     }
     @Then("User should navigated to product home page")
     public void user_should_navigated_to_product_home_page() {

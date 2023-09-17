@@ -10,21 +10,19 @@ import org.openqa.selenium.WebElement;
 
 public class WaitHelper extends CommonUtils {
 
-    public static WebDriver driver;
+    private WebDriver driver;
     private static final Logger logger = LogManager.getLogger(WaitHelper.class);
 
     public WaitHelper(WebDriver driver) {
-        super();
-        WaitHelper.driver = driver;
+        this.driver = driver;
     }
 
-    public void hardWait(int timeOutInMiliSec) throws InterruptedException {
-        Thread.sleep(timeOutInMiliSec);
-        logger.info("Hard wait...");
+    public void hardWait(int timeOutInMilliseconds) throws InterruptedException {
+        Thread.sleep(timeOutInMilliseconds);
+        logger.info("Hard wait for " + timeOutInMilliseconds + " milliseconds...");
     }
 
     public WebElement handleStaleElement(By locator, int retryCount, int delayInSeconds) throws InterruptedException {
-
         WebElement element = null;
 
         while (retryCount >= 0) {
@@ -33,10 +31,15 @@ public class WaitHelper extends CommonUtils {
                 logger.info("Handled stale element...");
                 return element;
             } catch (StaleElementReferenceException e) {
-                hardWait(delayInSeconds);
+                logger.warn("StaleElementReferenceException encountered. Retries remaining: " + retryCount);
+                if (retryCount == 0) {
+                    logger.error("Element cannot be recovered after retries.");
+                    throw e;
+                }
+                hardWait(delayInSeconds * 1000); // Convert seconds to milliseconds
                 retryCount--;
             }
         }
-        throw new StaleElementReferenceException("Element cannot be recovered");
+        return null; // This point should not be reached, as it throws an exception earlier
     }
 }

@@ -8,67 +8,70 @@ import java.util.Set;
 
 public class BrowserHelper extends CommonUtils {
 
-    public static WebDriver driver;
+    private WebDriver driver;
     private static final Logger logger = LogManager.getLogger(BrowserHelper.class);
     public BrowserHelper(WebDriver driver) {
         super();
-        BrowserHelper.driver = driver;
+        this.driver = driver;
 
     }
 
     public void goBack() {
         driver.navigate().back();
-        logger.info("Go back to previous page...");
+        logger.info("Go back to the previous page...");
     }
 
     public void goForward() {
         driver.navigate().forward();
-        logger.info("Go forward to next page...");
+        logger.info("Go forward to the next page...");
     }
 
     public void refresh() {
         driver.navigate().refresh();
-        logger.info("Refresh the current url...");
+        logger.info("Refresh the current URL...");
     }
 
-    public Set<String> getWindowHandlens() {
+    public Set<String> getWindowHandles() {
         logger.info("Get window handles");
         return driver.getWindowHandles();
-
     }
 
-    public void SwitchToWindow(int index) {
+    public void switchToWindow(int index) {
+        LinkedList<String> windowsId = new LinkedList<>(getWindowHandles());
 
-        LinkedList<String> windowsId = new LinkedList<String>(
-                getWindowHandlens());
-
-        if (index < 0 || index > windowsId.size())
-            throw new IllegalArgumentException("Invalid Index : " + index);
-
-        driver.switchTo().window(windowsId.get(index));
-        logger.info("Switched to window using index");
+        if (index >= 0 && index <= windowsId.size() - 1) {
+            driver.switchTo().window(windowsId.get(index));
+            logger.info("Switched to window using index");
+        } else {
+            logger.error("Invalid index provided: " + index);
+        }
     }
 
     public void switchToParentWindow() {
-        LinkedList<String> windowsId = new LinkedList<String>(
-                getWindowHandlens());
-        driver.switchTo().window(windowsId.get(0));
-        logger.info("Switched to parent window");
+        LinkedList<String> windowsId = new LinkedList<>(getWindowHandles());
+
+        if (windowsId.size() > 0) {
+            driver.switchTo().window(windowsId.get(0));
+            logger.info("Switched to parent window");
+        } else {
+            logger.error("No parent window available.");
+        }
     }
 
     public void switchToParentWithChildClose() {
         switchToParentWindow();
-
-        LinkedList<String> windowsId = new LinkedList<String>(
-                getWindowHandlens());
+        LinkedList<String> windowsId = new LinkedList<>(getWindowHandles());
 
         for (int i = 1; i < windowsId.size(); i++) {
-            windowsId.get(i);
-            driver.switchTo().window(windowsId.get(i));
-            driver.close();
+            try {
+                driver.switchTo().window(windowsId.get(i));
+                driver.close();
+            } catch (Exception e) {
+                logger.error("Error while closing child window: " + e.getMessage());
+            }
         }
 
         switchToParentWindow();
-        logger.info("Switched to parent window after closed all child windows");
+        logger.info("Switched to parent window after closing all child windows");
     }
 }

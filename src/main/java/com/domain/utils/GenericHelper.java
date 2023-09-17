@@ -11,37 +11,39 @@ import org.openqa.selenium.WebElement;
 import java.util.NoSuchElementException;
 public class GenericHelper extends CommonUtils {
 
-    public static WebDriver driver;
+    private WebDriver driver;
     private static final Logger logger = LogManager.getLogger(GenericHelper.class);
 
     public GenericHelper(WebDriver driver) {
-        GenericHelper.driver = driver;
+        this.driver = driver;
 
     }
 
     /**
      * Check for element is present based on locator
-     * If the element is present return the web element otherwise null
-     * @param locator
+     * If the element is present, return the web element; otherwise, null.
+     *
+     * @param locator The By locator to find the element.
      * @return WebElement or null
      */
-
     public WebElement getElementWithNull(By locator) {
-
         try {
             return driver.findElement(locator);
         } catch (NoSuchElementException e) {
-            // Ignore
+            logger.error("Element not found with locator: " + locator);
+            return null;
         }
-        logger.info("Get element with null");
-        return null;
-
     }
 
-    public boolean IsElementPresentQuick(By locator) {
+    /**
+     * Check if an element is present based on locator.
+     *
+     * @param locator The By locator to find the element.
+     * @return True if the element is present, false otherwise.
+     */
+    public boolean isElementPresentQuick(By locator) {
         boolean flag = driver.findElements(locator).size() >= 1;
-        logger.info("Is element present quick");
+        logger.info("Is element present quick: " + locator);
         return flag;
     }
-
 }

@@ -9,72 +9,111 @@ import org.openqa.selenium.WebElement;
 
 public class JavaScriptHelper extends CommonUtils {
 
-    public static WebDriver driver;
+    private WebDriver driver;
 
     private static final Logger logger = LogManager.getLogger(JavaScriptHelper.class);
 
     public JavaScriptHelper(WebDriver driver) {
-        JavaScriptHelper.driver = driver;
+        this.driver = driver;
 
     }
 
     public Object executeScript(String script) {
-        JavascriptExecutor exe = (JavascriptExecutor) driver;
-        logger.info("JavascriptExecutor method");
-        return exe.executeScript(script);
-
+        try {
+            JavascriptExecutor exe = (JavascriptExecutor) driver;
+            logger.info("Executing JavaScript: " + script);
+            return exe.executeScript(script);
+        } catch (Exception e) {
+            logger.error("Error executing JavaScript: " + e.getMessage());
+            return null;
+        }
     }
-
     public Object executeScript(String script, Object... args) {
-        JavascriptExecutor exe = (JavascriptExecutor) driver;
-        logger.info("JavascriptExecutor method");
-        return exe.executeScript(script, args);
+        try {
+            JavascriptExecutor exe = (JavascriptExecutor) driver;
+            logger.info("Executing JavaScript: " + script);
+            return exe.executeScript(script, args);
+        } catch (Exception e) {
+            logger.error("Error executing JavaScript: " + e.getMessage());
+            return null;
+        }
     }
 
-    public void scrollToElemet(WebElement element) {
-        executeScript("window.scrollTo(arguments[0],arguments[1])",
-                element.getLocation().x, element.getLocation().y);
-        logger.info("scrolled to element");
+    public void scrollToElement(WebElement element) {
+        try {
+            executeScript("arguments[0].scrollIntoView(true);", element);
+            logger.info("Scrolled to element");
+        } catch (Exception e) {
+            logger.error("Error scrolling to element: " + e.getMessage());
+        }
     }
 
-    public void scrollToElemet(By locator) {
-        scrollToElemet(driver.findElement(locator));
-        logger.info("scrolled to element");
+    public void scrollToElement(By locator) {
+        try {
+            scrollToElement(driver.findElement(locator));
+        } catch (Exception e) {
+            logger.error("Error scrolling to element: " + e.getMessage());
+        }
     }
 
-    public void scrollToElemetAndClick(By locator) {
-        WebElement element = driver.findElement(locator);
-        scrollToElemet(element);
-        element.click();
-        logger.info("scrolled to element and clicked");
+    public void scrollToElementAndClick(By locator) {
+        try {
+            WebElement element = driver.findElement(locator);
+            scrollToElement(element);
+            element.click();
+            logger.info("Scrolled to element and clicked");
+        } catch (Exception e) {
+            logger.error("Error scrolling to element and clicking: " + e.getMessage());
+        }
     }
 
-    public void scrollToElemetAndClick(WebElement element) {
-        scrollToElemet(element);
-        element.click();
-        logger.info("scrolled to element and clicked");
+    public void scrollToElementAndClick(WebElement element) {
+        try {
+            scrollToElement(element);
+            element.click();
+            logger.info("Scrolled to element and clicked");
+        } catch (Exception e) {
+            logger.error("Error scrolling to element and clicking: " + e.getMessage());
+        }
     }
 
     public void scrollIntoView(WebElement element) {
-        executeScript("arguments[0].scrollIntoView()", element);
-        logger.info("scrolled into view");
+        try {
+            executeScript("arguments[0].scrollIntoView(true);", element);
+            logger.info("Scrolled to element");
+        } catch (Exception e) {
+            logger.error("Error scrolling to element: " + e.getMessage());
+        }
     }
 
     public void scrollIntoView(By locator) {
-        scrollIntoView(driver.findElement(locator));
-        logger.info("scrolled into view");
+        try {
+            WebElement element = driver.findElement(locator);
+            scrollIntoView(element);
+            logger.info("Scrolled into view");
+        } catch (Exception e) {
+            logger.error("Error scrolling to element by locator: " + e.getMessage());
+        }
     }
 
     public void scrollIntoViewAndClick(By locator) {
-        WebElement element = driver.findElement(locator);
-        scrollIntoView(element);
-        element.click();
-        logger.info("scrolled into view and clicked");
+        try {
+            WebElement element = driver.findElement(locator);
+            scrollIntoView(element);
+            element.click();
+            logger.info("Scrolled into view and clicked");
+        } catch (Exception e) {
+            logger.error("Error scrolling to element and clicking by locator: " + e.getMessage());
+        }
     }
 
     public void scrollIntoViewAndClick(WebElement element) {
-        scrollIntoView(element);
-        element.click();
-        logger.info("scrolled into view and clicked");
+        try {
+            scrollIntoView(element);
+            element.click();
+            logger.info("Scrolled into view and clicked");
+        } catch (Exception e) {
+            logger.error("Error scrolling to element and clicking: " + e.getMessage());
+        }
     }
 }

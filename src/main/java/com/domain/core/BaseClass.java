@@ -53,9 +53,9 @@ public class BaseClass {
         driver.manage().window().maximize();
         logger.info("Browser has been maximized");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Constants.IMPLICIT_WAIT_TIME));
-        logger.info("implicitly wait for 10 seconds");
+        logger.info("Implicitly wait for 10 seconds");
         driver.get(ConfigsReader.getProperty("url"));
-        logger.info("Application url has been launched successfully!...");
+        logger.info("Application URL has been launched successfully!");
 
         // we initialize all the page elements of the classes in package com.automation.pages
         PageInitializer.initialize();
@@ -68,7 +68,7 @@ public class BaseClass {
     public static void tearDown()	{
         if (driver != null ) {
             driver.quit();
-            logger.info("Browser has been closed successfully!...");
+            logger.info("Browser has been closed successfully!");
         }
     }
 }

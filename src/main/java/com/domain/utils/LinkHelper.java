@@ -8,17 +8,22 @@ import org.openqa.selenium.WebElement;
 
 public class LinkHelper extends CommonUtils {
 
-    public static WebDriver driver;
+    private WebDriver driver;
     private static final Logger logger = LogManager.getLogger(LinkHelper.class);
     public LinkHelper(WebDriver driver) {
         super();
-        LinkHelper.driver = driver;
+        this.driver = driver;
 
     }
 
     public String getHyperLink(WebElement element) {
-        String link = element.getAttribute("hreg");
-        logger.info("Clicked hyperlink");
-        return link;
+        try {
+            String link = element.getAttribute("href");
+            logger.info("Retrieved hyperlink: " + link);
+            return link;
+        } catch (Exception e) {
+            logger.error("Error while getting hyperlink: " + e.getMessage());
+            return null;
+        }
     }
 }
