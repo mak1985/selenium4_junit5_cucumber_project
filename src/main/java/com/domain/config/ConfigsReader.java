@@ -14,15 +14,12 @@ public class ConfigsReader {
      *
      * @param String filePath
      */
-    public static void readProperties(String filePath)  {
-
-        try {
-            FileInputStream fis = new FileInputStream(filePath);
+    public static void readProperties(String filePath) {
+        try (FileInputStream fis = new FileInputStream(filePath)) {
             prop = new Properties();
             prop.load(fis);
-            fis.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Error reading properties file: {}", e.getMessage());
         }
         logger.info("Reading properties file...");
     }
@@ -33,8 +30,12 @@ public class ConfigsReader {
      * @return String value
      */
     public static String getProperty(String key) {
-        logger.info("Getting properties file...");
-        return prop.getProperty(key);
-
+        logger.info("Getting properties...");
+        if (prop != null) {
+            return prop.getProperty(key);
+        } else {
+            logger.error("Properties not loaded.");
+            return null;
+        }
     }
 }
