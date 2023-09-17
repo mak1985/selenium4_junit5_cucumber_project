@@ -33,5 +33,6 @@ public class LoginTest extends CommonUtils {
     @Then("User should navigated to product home page")
     public void user_should_navigated_to_product_home_page() {
         logger.info("User should navigated to product home page");
+
     }
 }
