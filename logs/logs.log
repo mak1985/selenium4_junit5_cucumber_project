@@ -1,42 +1,21 @@
-[INFO ] 2023-09-18 00:45:18.433 [main] ConfigsReader - Reading properties file...
-[INFO ] 2023-09-18 00:45:18.449 [main] BaseClass - Setting up the test environment.
-[INFO ] 2023-09-18 00:45:18.449 [main] ConfigsReader - Getting properties...
-[INFO ] 2023-09-18 00:45:26.204 [main] BaseClass - chromedriver has been initialized...
-[INFO ] 2023-09-18 00:45:26.204 [main] BaseClass - Browser has been launched
-[INFO ] 2023-09-18 00:45:26.495 [main] BaseClass - Browser has been maximized
-[INFO ] 2023-09-18 00:45:26.530 [main] BaseClass - Implicitly wait for 10 seconds
-[INFO ] 2023-09-18 00:45:26.530 [main] ConfigsReader - Getting properties...
-[INFO ] 2023-09-18 00:45:28.270 [main] BaseClass - Application URL has been launched successfully!
-[INFO ] 2023-09-18 00:45:28.623 [main] CommonUtils - Page title: Swag Labs
-[INFO ] 2023-09-18 00:45:28.623 [main] LoginTest - Application title verified
-[INFO ] 2023-09-18 00:45:28.893 [main] ConfigsReader - Getting properties...
-[INFO ] 2023-09-18 00:45:29.617 [main] CommonUtils - Entered text 'standard_user' into the element: [[ChromeDriver: chrome on windows (05288a01b8446c8c6232798a3fd96c5e)] -> id: user-name]
-[INFO ] 2023-09-18 00:45:29.617 [main] LoginTest - User enters username
-[INFO ] 2023-09-18 00:45:29.617 [main] ConfigsReader - Getting properties...
-[INFO ] 2023-09-18 00:45:30.194 [main] CommonUtils - Entered text 'secret_sauce' into the element: [[ChromeDriver: chrome on windows (05288a01b8446c8c6232798a3fd96c5e)] -> id: password]
-[INFO ] 2023-09-18 00:45:30.195 [main] LoginTest - User enters password
-[INFO ] 2023-09-18 00:45:40.938 [main] CommonUtils - Clicked element: Proxy element for: DefaultElementLocator 'By.id: login-button'
-[INFO ] 2023-09-18 00:45:40.938 [main] LoginTest - User clicks on login button
-[INFO ] 2023-09-18 00:45:41.318 [main] LoginTest - User should navigated to product home page
-[INFO ] 2023-09-18 00:45:42.646 [main] BaseClass - Browser has been closed successfully!
-[INFO ] 2023-09-18 01:28:46.073 [main] ConfigsReader - Reading properties file...
-[INFO ] 2023-09-18 01:28:46.088 [main] BaseClass - Setting up the test environment.
-[INFO ] 2023-09-18 01:28:46.088 [main] ConfigsReader - Getting properties...
-[INFO ] 2023-09-18 01:28:54.668 [main] BaseClass - chromedriver has been initialized...
-[INFO ] 2023-09-18 01:28:54.668 [main] BaseClass - Browser has been launched
-[INFO ] 2023-09-18 01:28:54.970 [main] BaseClass - Browser has been maximized
-[INFO ] 2023-09-18 01:28:54.995 [main] BaseClass - Implicitly wait for 10 seconds
-[INFO ] 2023-09-18 01:28:54.995 [main] ConfigsReader - Getting properties...
-[INFO ] 2023-09-18 01:28:56.408 [main] BaseClass - Application URL has been launched successfully!
-[INFO ] 2023-09-18 01:28:56.637 [main] CommonUtils - Page title: Swag Labs
-[INFO ] 2023-09-18 01:28:56.638 [main] LoginTest - Application title verified
-[INFO ] 2023-09-18 01:28:56.917 [main] ConfigsReader - Getting properties...
-[INFO ] 2023-09-18 01:28:57.517 [main] CommonUtils - Entered text 'standard_user' into the element: [[ChromeDriver: chrome on windows (3b3aefeb5537de05cb736f764ec5e442)] -> id: user-name]
-[INFO ] 2023-09-18 01:28:57.517 [main] LoginTest - User enters username
-[INFO ] 2023-09-18 01:28:57.517 [main] ConfigsReader - Getting properties...
-[INFO ] 2023-09-18 01:28:58.017 [main] CommonUtils - Entered text 'secret_sauce' into the element: [[ChromeDriver: chrome on windows (3b3aefeb5537de05cb736f764ec5e442)] -> id: password]
-[INFO ] 2023-09-18 01:28:58.017 [main] LoginTest - User enters password
-[INFO ] 2023-09-18 01:29:08.849 [main] CommonUtils - Clicked element: Proxy element for: DefaultElementLocator 'By.id: login-button'
-[INFO ] 2023-09-18 01:29:08.849 [main] LoginTest - User clicks on login button
-[INFO ] 2023-09-18 01:29:09.285 [main] LoginTest - User should navigated to product home page
-[INFO ] 2023-09-18 01:29:10.820 [main] BaseClass - Browser has been closed successfully!
+[INFO ] 2023-09-18 02:40:01.253 [main] ConfigsReader - Reading properties file...
+[INFO ] 2023-09-18 02:40:01.284 [main] BaseClass - Setting up the test environment.
+[INFO ] 2023-09-18 02:40:01.284 [main] ConfigsReader - Getting properties...
+[INFO ] 2023-09-18 02:40:10.756 [main] BaseClass - chromedriver has been initialized...
+[INFO ] 2023-09-18 02:40:10.758 [main] BaseClass - Browser has been launched
+[INFO ] 2023-09-18 02:40:11.099 [main] BaseClass - Browser has been maximized
+[INFO ] 2023-09-18 02:40:11.161 [main] BaseClass - Implicitly wait for 10 seconds
+[INFO ] 2023-09-18 02:40:11.162 [main] ConfigsReader - Getting properties...
+[INFO ] 2023-09-18 02:40:12.688 [main] BaseClass - Application URL has been launched successfully!
+[INFO ] 2023-09-18 02:40:13.036 [main] CommonUtils - Page title: Swag Labs
+[INFO ] 2023-09-18 02:40:13.036 [main] LoginTest - Application title verified
+[INFO ] 2023-09-18 02:40:13.311 [main] ConfigsReader - Getting properties...
+[INFO ] 2023-09-18 02:40:13.999 [main] CommonUtils - Entered text 'standard_user' into the element: [[ChromeDriver: chrome on windows (ff946b7a5116b05e7b5399e658e23320)] -> id: user-name]
+[INFO ] 2023-09-18 02:40:13.999 [main] LoginTest - User enters username
+[INFO ] 2023-09-18 02:40:13.999 [main] ConfigsReader - Getting properties...
+[INFO ] 2023-09-18 02:40:14.543 [main] CommonUtils - Entered text 'secret_sauce' into the element: [[ChromeDriver: chrome on windows (ff946b7a5116b05e7b5399e658e23320)] -> id: password]
+[INFO ] 2023-09-18 02:40:14.543 [main] LoginTest - User enters password
+[INFO ] 2023-09-18 02:40:25.333 [main] CommonUtils - Clicked element: Proxy element for: DefaultElementLocator 'By.id: login-button'
+[INFO ] 2023-09-18 02:40:25.333 [main] LoginTest - User clicks on login button
+[INFO ] 2023-09-18 02:40:25.665 [main] LoginTest - User should navigated to product home page
+[INFO ] 2023-09-18 02:40:26.857 [main] BaseClass - Browser has been closed successfully!
