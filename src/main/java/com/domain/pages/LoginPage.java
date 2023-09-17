@@ -1,12 +1,13 @@
 package com.domain.pages;
 
-import com.domain.utils.CommonUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import static com.domain.core.BaseClass.driver;
 
-public class LoginPage extends CommonUtils {
+
+public class LoginPage {
     @FindBy(id = "user-name")
     public WebElement userName;
 
