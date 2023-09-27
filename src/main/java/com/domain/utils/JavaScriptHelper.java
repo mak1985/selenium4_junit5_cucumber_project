@@ -18,6 +18,7 @@ public class JavaScriptHelper extends CommonUtils {
 
     }
 
+
     public Object executeScript(String script) {
         try {
             JavascriptExecutor exe = (JavascriptExecutor) driver;
